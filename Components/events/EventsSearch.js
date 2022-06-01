@@ -44,7 +44,7 @@ const EventsSearch = (props) => {
                 </select>
             </div>
         </div>
-        <Button link="">Find Events</Button>
+        <Button>Find Events</Button>
     </form>
   )
 }

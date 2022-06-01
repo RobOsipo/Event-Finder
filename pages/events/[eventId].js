@@ -1,26 +1,36 @@
-import { useRouter } from 'next/router'
-import { getEventById } from '../../dummy-data'
-import EventSummary from '../../Components/event-detail/event-summary'
-import EventLogistics from '../../Components/event-detail/event-logistics'
-import EventContent from '../../Components/event-detail/event-content'
+import { useRouter } from "next/router";
+import { getEventById } from "../../dummy-data";
+import EventSummary from "../../Components/event-detail/event-summary";
+import EventLogistics from "../../Components/event-detail/event-logistics";
+import EventContent from "../../Components/event-detail/event-content";
+import ErrorAlert from "../../Components/ui/ErrorAlert";
 
 const SingleEventDetail = () => {
-    const router = useRouter()
-   const {eventId} = router.query
-   const event = getEventById(eventId)
+  const router = useRouter();
+  const { eventId } = router.query;
+  const event = getEventById(eventId);
 
-   if (!event) {
-       return <p>No Event Found!</p>
-   }
+  if (!event) {
     return (
-        <>
-            <EventSummary title={event.title} />
-            <EventLogistics date={event.date} address={event.location} image={event.image} imageAlt={event.title} />
-            <EventContent>
-                <p>{event.description}</p>
-            </EventContent>
-        </>
-    )
-}
+      <ErrorAlert>
+        <p>No Event Found!</p>
+      </ErrorAlert>
+    );
+  }
+  return (
+    <>
+      <EventSummary title={event.title} />
+      <EventLogistics
+        date={event.date}
+        address={event.location}
+        image={event.image}
+        imageAlt={event.title}
+      />
+      <EventContent>
+        <p>{event.description}</p>
+      </EventContent>
+    </>
+  );
+};
 
-export default SingleEventDetail
+export default SingleEventDetail;
