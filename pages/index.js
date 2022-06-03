@@ -6,7 +6,7 @@ const HomePage = (props) => {
 
     return (
         <div>
-        
+        <h1 className="center pad-top">Featured Events</h1>
             <EventList items={props.featuredEvents} />
         </div>
     )
