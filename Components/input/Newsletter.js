@@ -24,9 +24,7 @@ function NewsletterRegistration() {
     .then(data => console.log(data))
     .catch(err => console.log('could not sign up for newsletter', err))
 
-    // fetch user input (state or refs)
-    // optional: validate input
-    // send valid data to API
+  
   }
 
   return (
