@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Comments from '../../Components/input/Comments'
 import {
   getEventById,
   getAllEvents,
@@ -35,6 +36,7 @@ const SingleEventDetail = (props) => {
       <EventContent>
         <p>{event.description}</p>
       </EventContent>
+      <Comments eventId={event.id} />
     </>
   );
 };
