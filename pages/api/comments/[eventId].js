@@ -7,6 +7,7 @@ async function handler(req, res) {
     await connectMongo()
   } catch {
     console.log('mongo connection failed')
+    res.status(500).json({ message: 'failed to connect to Mongo'})
   }
 
 
@@ -33,12 +34,13 @@ async function handler(req, res) {
       name,
       text,
     };
+    const createdComment = new EventModel(newComment);
 
     try {
-      const createdComment = await new EventModel(newComment);
       await createdComment.save()
     } catch (err) {
       console.log('creating and saving user failed')
+      res.status(422).json({ message: 'Could Not Save Comment To Mongo' })
     }
 
    
@@ -53,9 +55,17 @@ async function handler(req, res) {
       { id: "c3", name: "Rob", text: "A Comment brahhhhh" },
     ];
 
+    let comments 
+    try {
+      comments = await EventModel.find()
+    } catch(err) {
+      console.log('could not find comments')
+      res.status(401).json({ message: 'Finding comments failed'})
+    }
+
     res
       .status(200)
-      .json({ message: "Retrive Comment Successful", comments: dummyList });
+      .json({ message: "Retrive Comment Successful", comments: comments });
   }
 }
 

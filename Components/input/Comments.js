@@ -15,7 +15,7 @@ function Comments(props) {
       fetch(`/api/comments/${eventId}`)
         .then(response => response.json())
         .then(data => {
-          console.log(data)
+          console.log(data.comments)
           setComments(data.comments)
         })
         .catch(err => console.log('Cant Fetch Comments',err))

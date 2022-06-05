@@ -18,8 +18,11 @@ async function handler(req, res) {
         
         if(!email || !email.includes('@')) { return res.status(422).json({ message: 'Invalid E-Mail' }) }
 
+        const emailInput = new EmailModel({
+            email: email
+        })
+
         try {
-            const emailInput = await new EmailModel()
             await emailInput.save()
         } catch {
             console.log('failed saving email')

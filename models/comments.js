@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const { Schema, model, models } = mongoose
+const { Schema, model} = mongoose
 
 const commentsSchema = new Schema({
     email: {
@@ -16,6 +16,7 @@ const commentsSchema = new Schema({
     }
 })
 
-const EventModel = models.EventModel || model('Comment', commentsSchema)
+mongoose.models = {}
 
-export default EventModel
+export default mongoose.models.EventModel || model('Comment', commentsSchema)
+
