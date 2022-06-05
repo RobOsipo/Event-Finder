@@ -54,6 +54,7 @@ async function handler(req, res) {
     let comments 
     try {
       comments = await EventModel.find()
+      console.log('comments', comments)
     } catch(err) {
       console.log('could not find comments')
       res.status(401).json({ message: 'Finding comments failed'})
