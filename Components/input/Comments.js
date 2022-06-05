@@ -20,7 +20,7 @@ function Comments(props) {
         })
         .catch(err => console.log('Cant Fetch Comments',err))
     }
-  }, [showComments])
+  }, [showComments, eventId])
 
   function toggleCommentsHandler() {
     setShowComments((prevStatus) => !prevStatus);

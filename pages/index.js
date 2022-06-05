@@ -8,11 +8,10 @@ const HomePage = (props) => {
 
     return (
         <div>
-        <Head> // ! example for SEO
+        <Head> 
             <title>Event Finder Home Page</title>
             <meta name="description" content="Find some events here" />
         </Head>
-        {/* <h1 className="center pad-top">Featured Events</h1> */}
         <Newsletter />
             <EventList items={props.featuredEvents} />
         </div>

@@ -3,7 +3,7 @@ import MainHeader from './MainHeader'
 import Notification from '../ui/Notification'
 import NotificationContext from '../../store/notification-context'
 
-const layout = (props) => {
+const Layout = (props) => {
   const notificationCtx = useContext(NotificationContext)
   const activeNotification = notificationCtx.notification
   return (
@@ -15,4 +15,4 @@ const layout = (props) => {
   )
 }
 
-export default layout
+export default Layout

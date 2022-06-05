@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
     <>
   <NotificationContextProvider>
     <Layout>
-    <Head> // ! Head meta tags needed on all pages
+    <Head> 
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
       <Component {...pageProps} />
