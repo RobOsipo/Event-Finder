@@ -49,11 +49,7 @@ async function handler(req, res) {
   }
 
   if (req.method === "GET") {
-    const dummyList = [
-      { id: "c1", name: "Rob", text: "A Comment brahhhhh" },
-      { id: "c2", name: "Rob", text: "A Comment brahhhhh" },
-      { id: "c3", name: "Rob", text: "A Comment brahhhhh" },
-    ];
+   
 
     let comments 
     try {
