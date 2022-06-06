@@ -57,12 +57,12 @@ async function handler(req, res) {
       console.log('comments', comments)
     } catch(err) {
       console.log('could not find comments')
-      res.status(401).json({ message: 'Finding comments failed'})
+      res.status(422).json({ message: 'Finding comments failed'})
     }
 
     res
       .status(200)
-      .json({ message: "Retrive Comment Successful", comments: comments });
+      .json({ message: "Retrive Comments Successful", comments: comments });
   }
 }
 
